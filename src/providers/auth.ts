@@ -1,5 +1,5 @@
 import type { AuthProvider } from "@refinedev/core";
-import { TOKEN_KEY } from "./constants";
+import { TOKEN_KEY } from "../constants";
 
 export const authProvider: AuthProvider = {
   login: async ({ username, email, password }) => {

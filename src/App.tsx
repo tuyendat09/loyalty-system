@@ -6,12 +6,14 @@ import "./App.css";
 import { authProvider } from "./providers/auth";
 import { JSX } from "react";
 import { RESOURCE } from "./constants";
+import Login from "./pages/_auth/Login";
+import DashBoardLayout from "./components/layout/DashBoardLayout";
+import Dashboard from "./pages/_dashboard/dashboard/Dashboard";
 
 export default function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Refine
-        dataProvider={{}}
         resources={RESOURCE}
         routerProvider={routerProvider}
         authProvider={authProvider}
@@ -22,11 +24,11 @@ export default function App(): JSX.Element {
             path="/"
             element={
               <Authenticated key="protected" redirectOnFail="/login">
-                {/* Layout */}
+                <DashBoardLayout />
               </Authenticated>
             }
           >
-            {/* Pages */}
+            <Route index element={<Dashboard />} />
           </Route>
 
           <Route
@@ -36,7 +38,7 @@ export default function App(): JSX.Element {
               </Authenticated>
             }
           >
-            {/* Login Page */}
+            <Route path="/login" element={<Login />} />
           </Route>
         </Routes>
       </Refine>

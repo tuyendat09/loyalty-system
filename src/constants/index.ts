@@ -20,3 +20,6 @@ export const RESOURCE = [
     },
   },
 ];
+
+// === AUTH TOKEN KEY ===
+export const TOKEN_KEY = "willChangeName";
