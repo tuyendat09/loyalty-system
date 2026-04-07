@@ -1,3 +1,84 @@
+## 📁 Folder Structure
+
+```
+src/
+├── assets/
+├── components/                        # Shared toàn app
+│   ├── ui/
+│   ├── layout/
+│   │   ├── MainLayout.tsx
+│   │   ├── AuthLayout.tsx
+│   │   ├── Sidebar.tsx
+│   │   └── Header.tsx
+│   └── common/
+├── pages/
+│   ├── _auth/                         # Layout group auth
+│   │   ├── login/
+│   │   │   ├── LoginPage.tsx
+│   │   │   ├── components/
+│   │   │   └── hooks/
+│   │   └── register/
+│   │       ├── RegisterPage.tsx
+│   │       ├── components/
+│   │       └── hooks/
+│   │
+│   └── _dashboard/                    # Layout group dashboard
+│       ├── dashboard/
+│       │   ├── DashboardPage.tsx
+│       │   ├── components/
+│       │   └── hooks/
+│       └── users/
+│           ├── UsersPage.tsx
+│           ├── components/
+│           └── hooks/
+├── services/                          # Tất cả API calls, chia theo domain
+│   ├── auth/
+│   │   └── authService.ts
+│   ├── users/
+│   │   └── userService.ts
+│   └── orders/
+│       └── orderService.ts
+├── types/                             # Tất cả types, chia theo domain
+│   ├── auth/
+│   │   └── auth.types.ts
+│   ├── users/
+│   │   └── user.types.ts
+│   └── orders/
+│       └── order.types.ts
+├── routes/
+│   ├── routes.ts
+│   ├── AppRoutes.tsx
+│   ├── ProtectedRoute.tsx
+│   └── PublicRoute.tsx
+├── stores/
+│   └── useAuthStore.ts
+├── hooks/                         # Hooks shared toàn app
+│   └── useInitAuth.ts
+├── lib/
+│   ├── axios.ts
+│   ├── validations.ts
+│   └── utils.ts
+├── App.tsx
+└── main.tsx
+```
+
+## 📐 Quy tắc đặt Component
+
+Component này dùng ở 2 page trở lên?
+
+- **Có** → `src/components/`
+- **Không** → `src/pages/<tên-page>/components/`
+
+Ví dụ:
+
+| Component       | Đặt ở                         | Lý do                |
+| --------------- | ----------------------------- | -------------------- |
+| `<Button />`    | `components/ui/`              | Dùng khắp app        |
+| `<Sidebar />`   | `components/layout/`          | Layout chung         |
+| `<StatsCard />` | `pages/dashboard/components/` | Chỉ dùng ở dashboard |
+| `<UserTable />` | `pages/users/components/`     | Chỉ dùng ở users     |
+
+
 # loyalty-system
 
 <div align="center" style="margin: 30px;">
